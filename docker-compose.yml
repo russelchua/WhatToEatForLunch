@@ -1,0 +1,26 @@
+version: "3.6"
+
+services:
+
+    whattoeatforlunch:
+        build: .
+        ports:
+        - "8852:8852"
+        volumes:
+        - /d/Chua Wei-Yang/GitProject/WhatToEatForLunch/codeSpace/WhatToEatForLunch/docker_data:/docker_data
+        links:
+        - mssqlserver
+        depends_on:
+        - mssqlserver
+    
+    mssqlserver:
+        image: mcr.microsoft.com/mssql/server:2017-latest
+        ports:
+        - "1434:1433"
+        volumes:
+        - /d/Chua Wei-Yang/GitProject/WhatToEatForLunch/codeSpace/WhatToEatForLunch/mssqlserver/data:/mssqlserver/data
+        environment:
+        - ACCEPT_EULA=Y
+        - SA_PASSWORD=p@ssw0rd
+        container_name: mssqlserver_docker
+        
