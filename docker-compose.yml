@@ -5,7 +5,7 @@ services:
     whattoeatforlunch:
         build: .
         ports:
-        - "8777:8777"
+        - "9803:8777"
         volumes:
         - /d/Chua Wei-Yang/GitProject/WhatToEatForLunch/codeSpace/WhatToEatForLunch/docker_data:/docker_data
         links:
